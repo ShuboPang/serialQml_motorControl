@@ -2,7 +2,7 @@
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.3
 import "./ControlQml"
-
+import "./control.js" as Control
 
 Rectangle{
     id:root
@@ -35,14 +35,14 @@ Rectangle{
                 text: "正转"
                 width: 90
                 onClicked: {
-
+                    Control.sendData(Control.MOTOR1_TURN_RIGHT+Number((motorId)-1)*10,pulse.configValue);
                 }
             }
             ICButton{
                 text: "反转"
                 width: 90
                 onClicked: {
-
+                    Control.sendData(Control.MOTOR1_TURN_LEFT+Number((motorId)-1)*10,pulse.configValue);
                 }
             }
         }
@@ -63,7 +63,7 @@ Rectangle{
                 text: "运动"
                 width: 180
                 onClicked: {
-
+                    Control.sendData(Control.MOTOR1_POS+Number((motorId)-1)*10,pulsePos.configValue);
                 }
             }
         }
@@ -82,7 +82,7 @@ Rectangle{
                 text: "设置"
                 width: 68
                 onClicked: {
-
+                    Control.sendData(Control.MOTOR1_SPEED+Number((motorId)-1)*10,speed.configValue);
                 }
             }
         }
@@ -91,6 +91,7 @@ Rectangle{
             ICButton{
                 text: "设置当前为原点"
                 width: 180
+                visible: false
                 onClicked: {
 
                 }

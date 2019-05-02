@@ -2,6 +2,7 @@
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.3
 import "./ControlQml"
+import "./control.js" as Control
 
 ApplicationWindow {
     visible: true
@@ -30,7 +31,7 @@ ApplicationWindow {
                     inputText: {
                         var arr = serialtest.receivedata.split("#")
                         var ret ;
-                        if(arr[arr.length-1].split(",").length !== 8)
+                        if(arr[arr.length-1].split(",").length !== 8 || arr[arr.length-1].split(",")[0] != "123" || arr[arr.length-1].split(",")[7] != "321")
                         {
                             ret = arr[arr.length-2]+""
                         }
@@ -56,23 +57,33 @@ ApplicationWindow {
                         if(tmp.length !==8 ){
                             return ;
                         }
-                        if(tmp[0] != "123" || tmp[tmp.legth-1] != "321"){
-                            return
-                        }
-                        if(tmp[1] == "124"){
+                        if(tmp[1] == "1"){
                             oversee.motor1x = tmp[2];
                             oversee.motor1y = tmp[3];
                             oversee.motor1z = tmp[4];
                         }
-                        else if(tmp[1] == "125"){
+                        else if(tmp[1] == "2"){
                             oversee.motor2x = tmp[2];
                             oversee.motor2y = tmp[3];
                             oversee.motor2z = tmp[4];
                         }
-                        else if(tmp[1] == "164"){
+                        else if(tmp[1] == "3"){
                             oversee.motor3x = tmp[2];
                             oversee.motor3y = tmp[3];
                             oversee.motor3z = tmp[4];
+                        }
+                        else if(tmp[1] == "4"){
+                            oversee.mpu6050x = tmp[2];
+                            oversee.mpu6050y = tmp[3];
+                            oversee.mpu6050z = tmp[4];
+                        }
+                        else if(tmp[1] == "5"){
+                            if(tmp[2] == '0'){
+                                error.configValue = "无"
+                            }
+                            else if(tmp[2] == '1'){
+                                error.configValue = "系统异常"
+                            }
                         }
                     }
                 }
@@ -129,7 +140,7 @@ ApplicationWindow {
                 text: "电机1设为原点"
                 width: 170
                 onClicked: {
-
+                    Control.sendData(Control.MOTOR1_ORIGIN,0);
                 }
             }
             ICButton{
@@ -138,7 +149,7 @@ ApplicationWindow {
                 width:motor1Orign.width
                 visible: motor1Orign.visible
                 onClicked: {
-
+                    Control.sendData(Control.MOTOR2_ORIGIN,0);
                 }
             }
             ICButton{
@@ -147,7 +158,7 @@ ApplicationWindow {
                 width:motor1Orign.width
                 visible: motor1Orign.visible
                 onClicked: {
-
+                    Control.sendData(Control.MOTOR3_ORIGIN,0);
                 }
             }
             ICButton{
@@ -156,7 +167,7 @@ ApplicationWindow {
                 width:motor1Orign.width
                 visible: motor1Orign.visible
                 onClicked: {
-
+                    Control.sendData(Control.MPU6050_ORIGIN,0);
                 }
             }
             ICButton{

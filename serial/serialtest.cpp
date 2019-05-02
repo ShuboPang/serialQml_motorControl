@@ -82,16 +82,42 @@ int SerialTest::openAndSetPort(int PortNameIndex,int BaudRateIndex,int DatabitsI
 ////////////////////4.发送数据//////////////////////////////
 void SerialTest::sendto(QString sendmessage)//此函数由qml里的send按钮触发，sendmessage来源于qml文本框的当前文本，
 {
-    QByteArray data = sendmessage.toLocal8Bit()+'\r';//将QString转为QByteArray，并加上'\r'（回车符）,因为芯片要求在回车符之后再返回数据
+    QByteArray data = sendmessage.toLocal8Bit()+'\r'+'\n';//将QString转为QByteArray，并加上'\r'（回车符）,因为芯片要求在回车符之后再返回数据
     qint64 testwritenumber=serialtest.write(data);//写入数据
 
-    m_receivedata=m_receivedata+"\n";//加上换行符便于显示
+    m_receivedata=m_receivedata;//加上换行符便于显示
 
     c_sendnumber=c_sendnumber+testwritenumber-1;//发送数据字节数统计（减去回车符）
     setsendnumber(QString ::number(c_sendnumber));//更新发送的数据字节总数
-
-
 }
+
+void SerialTest::sendtoMotor(QString mode,QString data)//此函数由qml里的send按钮触发，sendmessage来源于qml文本框的当前文本，
+{
+    QByteArray s_buff;
+    uint32_t data1 = data.toLong();
+    s_buff.resize(8);
+    s_buff[0] = '#';
+    s_buff[1] = mode.toLong() % 0xff;
+    s_buff[2] = (data1 >> 24);
+    s_buff[3] = (data1 >> 16);
+    s_buff[4] = (data1 >> 8);
+    s_buff[5] = (data1);
+    std::cout<<"s_buff[2]="<<s_buff[2] <<std::endl;
+    std::cout<<"s_buff[3]="<<s_buff[3] <<std::endl;
+    std::cout<<"s_buff[4]="<<s_buff[4] <<std::endl;
+    std::cout<<"s_buff[5]="<<s_buff[5] <<std::endl;
+
+    s_buff[6] = (s_buff[1]+s_buff[2]+s_buff[3]+s_buff[4]+s_buff[5])&0xff;
+    s_buff[7] = '!';
+
+    qint64 testwritenumber=serialtest.write(s_buff);//写入数据
+
+    m_receivedata=m_receivedata;//加上换行符便于显示
+
+    c_sendnumber=c_sendnumber+testwritenumber-1;//发送数据字节数统计（减去回车符）
+    setsendnumber(QString ::number(c_sendnumber));//更新发送的数据字节总数
+}
+
 
 void SerialTest::setsendnumber(QString sendnumber)//更新发送的数据字节总数，触发sendnumberChanged()的消息响应函数sendnumber()来更新显示
 {

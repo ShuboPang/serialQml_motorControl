@@ -2,6 +2,7 @@
 #define SERIALTEST_H
 #include <QObject>
 #include <QtSerialPort/QSerialPort>
+
 class SerialTest : public QSerialPort
 {
     Q_OBJECT 
@@ -26,6 +27,7 @@ public:
     QString sendnumber();
     void setsendnumber(QString sendnumber);
 
+    Q_INVOKABLE void sendtoMotor(QString mode,QString data);
     QString receivenumber();
     void setreceivenumber(QString receivenumber);
 

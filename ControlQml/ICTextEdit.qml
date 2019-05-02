@@ -45,6 +45,12 @@ Rectangle {
                     id: recvCount
                     font.pointSize: 12
                     text:"0"
+                    onTextChanged: {
+                        if(Number(text) >= 20000)
+                        {
+                            clickClear()
+                        }
+                    }
                 }
             }
 

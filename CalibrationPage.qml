@@ -70,7 +70,7 @@ Rectangle {
                 btCancelName: "设入"
                 onBtClick: {
                     serialtest.sendto(currentPos)
-                    state = !state
+                    state = true
                 }
             }
             RunState{
@@ -80,7 +80,7 @@ Rectangle {
                 btCancelName: "设入"
                 onBtClick: {
                     serialtest.sendto(currentPos)
-                    state = !state
+                    state = true
                 }
             }
             RunState{
@@ -90,7 +90,7 @@ Rectangle {
                 btCancelName: "设入"
                 onBtClick: {
                     serialtest.sendto(currentPos)
-                    state = !state
+                    state = true
                 }
             }
             RunState{
@@ -100,7 +100,7 @@ Rectangle {
                 btCancelName: "设入"
                 onBtClick: {
                     serialtest.sendto(currentPos)
-                    state = !state
+                    state = true
                 }
             }
             RunState{
@@ -110,7 +110,7 @@ Rectangle {
                 btCancelName: "设入"
                 onBtClick: {
                     serialtest.sendto(currentPos)
-                    state = !state
+                    state = true
                 }
             }
         }
@@ -127,7 +127,7 @@ Rectangle {
                 btCancelName: "设入"
                 onBtClick: {
                     serialtest.sendto(currentPos)
-                    state = !state
+                    state = true
                 }
             }
             RunState{
@@ -137,7 +137,7 @@ Rectangle {
                 btCancelName: "设入"
                 onBtClick: {
                     serialtest.sendto(currentPos)
-                    state = !state
+                    state = true
                 }
             }
             RunState{
@@ -147,7 +147,7 @@ Rectangle {
                 btCancelName: "设入"
                 onBtClick: {
                     serialtest.sendto(currentPos)
-                    state = !state
+                    state = true
                 }
             }
             RunState{
@@ -157,7 +157,7 @@ Rectangle {
                 btCancelName: "设入"
                 onBtClick: {
                     serialtest.sendto(currentPos)
-                    state = !state
+                    state = true
                 }
             }
             RunState{
@@ -167,7 +167,7 @@ Rectangle {
                 btCancelName: "设入"
                 onBtClick: {
                     serialtest.sendto(currentPos)
-                    state = !state
+                    state = true
                 }
             }
             RunState{
@@ -177,7 +177,7 @@ Rectangle {
                 btCancelName: "设入"
                 onBtClick: {
                     serialtest.sendto(currentPos)
-                    state = !state
+                    state = true
                 }
             }
         }

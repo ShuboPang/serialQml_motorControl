@@ -43,16 +43,19 @@ Rectangle {
                 id:port
                 configName:"端口号:"
                 item: ["COM1","COM2","COM3","COM4","COM5","COM6","COM7","COM8","COM9","COM10","COM11","COM12","COM13","COM14","COM15"]
+                connfigValue: 13
             }
             ICComboBox{
                 id:baudRate
                 configName:"波特率:"
                 item: ["9600","19200","38400","115200"]
+                connfigValue: 3
             }
             ICComboBox{
                 id:dataBits
                 configName:"数据位:"
                 item: ["5","6","7","8"]
+                connfigValue: 3
             }
             ICComboBox{
                 id:checkDigit

@@ -43,7 +43,8 @@ DISTFILES += \
     ControlQml/ICTextEdit.qml \
     ControlQml/ICBasicPage.qml \
     ControlQml/ICSurveillance.qml \
-    CalibrationPage.qml
+    CalibrationPage.qml \
+    control.js
 
 HEADERS += \
     serial/serialtest.h

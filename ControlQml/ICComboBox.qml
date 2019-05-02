@@ -18,9 +18,8 @@ Rectangle {
     ComboBox{
         id:box
         anchors.left:text.right
-        font.pointSize: 10
+        font.pointSize: 12
         width: 100
         height: 25
-
     }
 }

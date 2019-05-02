@@ -20,5 +20,6 @@
         <file>MotorControls.qml</file>
         <file>ControlQml/ICLineEdit.qml</file>
         <file>AutoControls.qml</file>
+        <file>control.js</file>
     </qresource>
 </RCC>
