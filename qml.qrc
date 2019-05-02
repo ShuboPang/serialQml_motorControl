@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>ControlQml/RunState.qml</file>
+        <file>serial/serialtest.cpp</file>
+        <file>serial/serialtest.h</file>
+        <file>ControlQml/ICComboBox.qml</file>
+        <file>ControlQml/ICButton.qml</file>
+        <file>ControlQml/Message.qml</file>
+        <file>ControlQml/ICTextEdit.qml</file>
+        <file>ControlQml/ICBasicPage.qml</file>
+        <file>ControlQml/ICSurveillance.qml</file>
+        <file>Mpu6050.qml</file>
+        <file>Motor.qml</file>
+        <file>OverSee.qml</file>
+        <file>SetPortPage.qml</file>
+        <file>CalibrationPage.qml</file>
+        <file>MotorControl.qml</file>
+        <file>MotorControls.qml</file>
+        <file>ControlQml/ICLineEdit.qml</file>
+        <file>AutoControls.qml</file>
+    </qresource>
+</RCC>
