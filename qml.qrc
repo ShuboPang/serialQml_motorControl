@@ -21,5 +21,6 @@
         <file>ControlQml/ICLineEdit.qml</file>
         <file>AutoControls.qml</file>
         <file>control.js</file>
+        <file>LimitSet.qml</file>
     </qresource>
 </RCC>

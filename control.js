@@ -2,39 +2,45 @@
 //控制并发送数据
 
 var MOTOR1_TURN_RIGHT = 1;
- var MOTOR1_TURN_LEFT = 2
- var MOTOR1_SPEED = 3
- var MOTOR1_POS = 4
- var MOTOR1_ORIGIN = 5
+var MOTOR1_TURN_LEFT = 2
+var MOTOR1_SPEED = 3
+var MOTOR1_POS = 4
+var MOTOR1_ORIGIN = 5
+var MOTOR1_P_LIMIT = 6
+var MOTOR1_N_LIMIT = 7
 
 //电机2
- var MOTOR2_TURN_RIGHT = 11
- var MOTOR2_TURN_LEFT = 12
- var MOTOR2_SPEED = 13
- var MOTOR2_POS = 14
- var MOTOR2_ORIGIN = 15
+var MOTOR2_TURN_RIGHT = 11
+var MOTOR2_TURN_LEFT = 12
+var MOTOR2_SPEED = 13
+var MOTOR2_POS = 14
+var MOTOR2_ORIGIN = 15
+var MOTOR1_P_LIMIT = 16
+var MOTOR1_N_LIMIT = 17
 
 //电机3
- var MOTOR3_TURN_RIGHT = 21
- var MOTOR3_TURN_LEFT = 22
- var MOTOR3_SPEED = 23
- var MOTOR3_POS = 24
- var MOTOR3_ORIGIN = 25
+var MOTOR3_TURN_RIGHT = 21
+var MOTOR3_TURN_LEFT = 22
+var MOTOR3_SPEED = 23
+var MOTOR3_POS = 24
+var MOTOR3_ORIGIN = 25
+var MOTOR1_P_LIMIT = 26
+var MOTOR1_N_LIMIT = 27
 
 //mpu6050
- var MPU6050_ORIGIN = 31
+var MPU6050_ORIGIN = 31
 
 //紧急停止
- var STOP = 41
+var STOP = 41
 
 //标定模式
- var CALIBRATION = 51
+var CALIBRATION = 51
 
 
 //自动模式
- var AUTO_1 = 71
+var AUTO_1 = 71
 
- var MAX = 100
+var MAX = 100
 
 
 function sendData(mode,data){

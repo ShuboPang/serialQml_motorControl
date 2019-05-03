@@ -194,8 +194,14 @@ ApplicationWindow {
                     }
                     MotorControls{
                         id:motorControls
+                        width: 600
+                        height: 230
+                    }
+                    LimitSet{
+                        id:limitSet
                         width: 500
                         height: 230
+                        visible: currentMode.connfigValue == 1
                     }
                     AutoControls{
                         id:autoControls

@@ -15,6 +15,8 @@ Rectangle{
         height: 25
         anchors.left: parent.left
         anchors.leftMargin: 2
+        anchors.top:parent.top
+        anchors.topMargin: 2
         selectByMouse: true
         mouseSelectionMode: TextInput.SelectCharacters
         selectedTextColor: "blue"
