@@ -2,6 +2,7 @@
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.3
 import "./ControlQml"
+import "./control.js" as Control
 
 Rectangle {
     id:root
@@ -69,7 +70,7 @@ Rectangle {
                 btOKName: "设入"
                 btCancelName: "设入"
                 onBtClick: {
-                    serialtest.sendto(currentPos)
+                    Control.sendData(Control.CALIBRATION,0);
                     state = true
                 }
             }
@@ -79,7 +80,7 @@ Rectangle {
                 btOKName: "设入"
                 btCancelName: "设入"
                 onBtClick: {
-                    serialtest.sendto(currentPos)
+                    Control.sendData(Control.CALIBRATION+1,0);
                     state = true
                 }
             }
@@ -89,7 +90,7 @@ Rectangle {
                 btOKName: "设入"
                 btCancelName: "设入"
                 onBtClick: {
-                    serialtest.sendto(currentPos)
+                    Control.sendData(Control.CALIBRATION+2,0);
                     state = true
                 }
             }
@@ -99,7 +100,7 @@ Rectangle {
                 btOKName: "设入"
                 btCancelName: "设入"
                 onBtClick: {
-                    serialtest.sendto(currentPos)
+                    Control.sendData(Control.CALIBRATION+3,0);
                     state = true
                 }
             }
@@ -109,7 +110,7 @@ Rectangle {
                 btOKName: "设入"
                 btCancelName: "设入"
                 onBtClick: {
-                    serialtest.sendto(currentPos)
+                    Control.sendData(Control.CALIBRATION+4,0);
                     state = true
                 }
             }
@@ -126,7 +127,7 @@ Rectangle {
                 btOKName: "设入"
                 btCancelName: "设入"
                 onBtClick: {
-                    serialtest.sendto(currentPos)
+                    Control.sendData(Control.CALIBRATION+5,0);
                     state = true
                 }
             }
@@ -136,7 +137,7 @@ Rectangle {
                 btOKName: "设入"
                 btCancelName: "设入"
                 onBtClick: {
-                    serialtest.sendto(currentPos)
+                    Control.sendData(Control.CALIBRATION+6,0);
                     state = true
                 }
             }
@@ -146,7 +147,7 @@ Rectangle {
                 btOKName: "设入"
                 btCancelName: "设入"
                 onBtClick: {
-                    serialtest.sendto(currentPos)
+                    Control.sendData(Control.CALIBRATION+7,0);
                     state = true
                 }
             }
@@ -156,7 +157,7 @@ Rectangle {
                 btOKName: "设入"
                 btCancelName: "设入"
                 onBtClick: {
-                    serialtest.sendto(currentPos)
+                    Control.sendData(Control.CALIBRATION+8,0);
                     state = true
                 }
             }
@@ -166,7 +167,7 @@ Rectangle {
                 btOKName: "设入"
                 btCancelName: "设入"
                 onBtClick: {
-                    serialtest.sendto(currentPos)
+                    Control.sendData(Control.CALIBRATION+9,0);
                     state = true
                 }
             }
@@ -176,7 +177,7 @@ Rectangle {
                 btOKName: "设入"
                 btCancelName: "设入"
                 onBtClick: {
-                    serialtest.sendto(currentPos)
+                    Control.sendData(Control.CALIBRATION+10,0);
                     state = true
                 }
             }

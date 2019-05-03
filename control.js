@@ -32,13 +32,7 @@ var MOTOR1_TURN_RIGHT = 1;
 
 
 //自动模式
- var AUTO_1 = 61
- var AUTO_2 = 62
- var AUTO_3 = 63
- var AUTO_4 = 64
- var AUTO_5 = 65
- var AUTO_6 = 66
- var AUTO_7 = 67
+ var AUTO_1 = 71
 
  var MAX = 100
 
@@ -48,4 +42,63 @@ function sendData(mode,data){
     console.log("data:",data)
     serialtest.sendtoMotor(mode,data)
      console.log("Js send ok")
+}
+
+function getErr(error){
+    var ret = 0;
+//    console.log("error",error)
+    switch(Number(error)){
+    case 0:
+        ret = "无"
+        break;
+    case 1:
+        ret = "系统异常"
+        break;
+
+        //电机1
+    case 10:
+        ret = "电机1运动超过正极限"
+        break;
+    case 11:
+        ret = "电机1运动超过负极限"
+        break;
+    case 12:
+        ret = "电机1目标值超过正极限"
+        break;
+    case 13:
+        ret = "电机1目标值超过负极限"
+        break;
+
+        //电机2
+    case 20:
+        ret = "电机2运动超过正极限"
+        break;
+    case 21:
+        ret = "电机2运动超过负极限"
+        break;
+    case 22:
+        ret = "电机2目标值超过正极限"
+        break;
+    case 23:
+        ret = "电机2目标值超过负极限"
+        break;
+
+        //电机3
+    case 30:
+        ret = "电机3运动超过正极限"
+        break;
+    case 31:
+        ret = "电机3运动超过负极限"
+        break;
+    case 32:
+        ret = "电机3目标值超过正极限"
+        break;
+    case 33:
+        ret = "电机3目标值超过负极限"
+        break;
+    default:
+        ret = "报警错误"
+        break;
+    }
+    return ret
 }

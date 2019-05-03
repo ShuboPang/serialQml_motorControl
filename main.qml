@@ -78,12 +78,7 @@ ApplicationWindow {
                             oversee.mpu6050z = tmp[4];
                         }
                         else if(tmp[1] == "5"){
-                            if(tmp[2] == '0'){
-                                error.configValue = "无"
-                            }
-                            else if(tmp[2] == '1'){
-                                error.configValue = "系统异常"
-                            }
+                            error.configValue = Control.getErr(tmp[2])
                         }
                     }
                 }
@@ -174,7 +169,7 @@ ApplicationWindow {
                 id:stop
                 text: "紧急停止"
                 onClicked: {
-
+                     Control.sendData(Control.STOP,0);
                 }
             }
             ICSurveillance{
