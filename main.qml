@@ -174,7 +174,7 @@ ApplicationWindow {
             }
             ICSurveillance{
                 id:error
-                configName: "报警："
+                configName: "系统状态："
                 configValue: "无"
                 visible: !motor1Orign.visible
             }

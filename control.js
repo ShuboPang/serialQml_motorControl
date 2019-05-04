@@ -51,59 +51,62 @@ function sendData(mode,data){
 }
 
 function getErr(error){
-    var ret = 0;
+    var ret = "报警"+Number(error)+"_";
 //    console.log("error",error)
     switch(Number(error)){
     case 0:
-        ret = "无"
+        ret += "无"
         break;
     case 1:
-        ret = "系统异常"
+        ret += "系统异常"
+        break;
+    case 2:
+        ret += "高度未标定"
         break;
 
         //电机1
     case 10:
-        ret = "电机1运动超过正极限"
+        ret += "电机1运动超过正极限"
         break;
     case 11:
-        ret = "电机1运动超过负极限"
+        ret += "电机1运动超过负极限"
         break;
     case 12:
-        ret = "电机1目标值超过正极限"
+        ret += "电机1目标值超过正极限"
         break;
     case 13:
-        ret = "电机1目标值超过负极限"
+        ret += "电机1目标值超过负极限"
         break;
 
         //电机2
     case 20:
-        ret = "电机2运动超过正极限"
+        ret += "电机2运动超过正极限"
         break;
     case 21:
-        ret = "电机2运动超过负极限"
+        ret += "电机2运动超过负极限"
         break;
     case 22:
-        ret = "电机2目标值超过正极限"
+        ret += "电机2目标值超过正极限"
         break;
     case 23:
-        ret = "电机2目标值超过负极限"
+        ret += "电机2目标值超过负极限"
         break;
 
         //电机3
     case 30:
-        ret = "电机3运动超过正极限"
+        ret += "电机3运动超过正极限"
         break;
     case 31:
-        ret = "电机3运动超过负极限"
+        ret += "电机3运动超过负极限"
         break;
     case 32:
-        ret = "电机3目标值超过正极限"
+        ret += "电机3目标值超过正极限"
         break;
     case 33:
-        ret = "电机3目标值超过负极限"
+        ret += "电机3目标值超过负极限"
         break;
     default:
-        ret = "报警错误"
+        ret += "状态显示错误"
         break;
     }
     return ret
