@@ -21,6 +21,7 @@ Rectangle{
         mouseSelectionMode: TextInput.SelectCharacters
         selectedTextColor: "blue"
         font.pointSize: 15
+        enabled: root.enabled
     }
 
 }

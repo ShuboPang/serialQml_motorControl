@@ -35,108 +35,150 @@ Rectangle {
         height: 230
         width: 600
         z:1
-        Column{
+        Row{
             x:10
             y:25
-            spacing:5
-            Row{
-                Text {
-                    text: qsTr("1.固定高度：")
-                    font.pointSize: 15
+            spacing: 10
+            Column{
+                spacing:5
+                Row{
+                    Text {
+                        text: qsTr("1.固定高度：")
+                        font.pointSize: 15
+                    }
+                    ICLineEdit{
+                        id:height
+                    }
+                    ICButton{
+                        text: "运行"
+                        onClicked: {
+                            Control.sendData(Control.AUTO_1,height.configValue);
+                        }
+                    }
                 }
-                ICLineEdit{
-                    id:height
+                Row{
+                    Text {
+                        text: qsTr("2.固定角度：")
+                        font.pointSize: 15
+                    }
+                    ICLineEdit{
+                        id:angle
+                    }
+                    ICButton{
+                        text: "运行"
+                        onClicked: {
+                            Control.sendData(Control.AUTO_1+1,angle.configValue);
+                        }
+                    }
                 }
-                ICButton{
-                    text: "运行"
-                    onClicked: {
-                        Control.sendData(Control.AUTO_1,height.configValue);
+                Row{
+                    Text {
+                        text: qsTr("3.固定长度：")
+                        font.pointSize: 15
+                    }
+                    ICLineEdit{
+                        id:distance
+                    }
+                    ICButton{
+                        text: "运行"
+                        onClicked: {
+                            Control.sendData(Control.AUTO_1+2,distance.configValue);
+                        }
+                    }
+                }
+                Row{
+                    Text {
+                        text: qsTr("4.任意点")
+                        font.pointSize: 15
+                    }
+                   Text {
+                       text: qsTr("X:")
+                       font.pointSize: 15
+                   }
+                    ICLineEdit{
+                        id:x
+                    }
+                    Text {
+                        text: qsTr("Y:")
+                        font.pointSize: 15
+                    }
+                    ICLineEdit{
+                        id:y
+                    }
+                    ICButton{
+                        text: "运行"
+                        onClicked: {
+                            Control.sendData(Control.AUTO_1+3,0);
+                        }
+                    }
+                }
+                Row{
+                    Text {
+                        text: qsTr("5.画圆半径：")
+                        font.pointSize: 15
+                    }
+                    ICLineEdit{
+                        id:r
+                    }
+                    ICButton{
+                        text: "运行"
+                        onClicked: {
+                           Control.sendData(Control.AUTO_1+4,r.configValue);
+                        }
+                    }
+                }
+                Row{
+                    Text {
+                        text: qsTr("6.轨迹")
+                        font.pointSize: 15
+                    }
+                    ICButton{
+                        text: "运行"
+                        onClicked: {
+                            Control.sendData(Control.AUTO_1+5,r.configValue);
+                        }
                     }
                 }
             }
-            Row{
-                Text {
-                    text: qsTr("2.固定角度：")
-                    font.pointSize: 15
-                }
-                ICLineEdit{
-                    id:angle
-                }
-                ICButton{
-                    text: "运行"
-                    onClicked: {
-                        Control.sendData(Control.AUTO_1+1,angle.configValue);
+            Column{
+                spacing: 10
+                Row{
+                    ICInputBox{
+                        id:autoSpeed
+                        configName: "全局速度："
+                        configValue: "5"
                     }
                 }
-            }
-            Row{
-                Text {
-                    text: qsTr("3.固定长度：")
-                    font.pointSize: 15
-                }
-                ICLineEdit{
-                    id:distance
-                }
-                ICButton{
-                    text: "运行"
-                    onClicked: {
-                        Control.sendData(Control.AUTO_1+2,distance.configValue);
+                Row{
+                    ICCheckbox{
+                        id:comeBack
+                        configName: "是否返回"
                     }
                 }
-            }
-            Row{
-                Text {
-                    text: qsTr("4.任意点")
-                    font.pointSize: 15
-                }
-               Text {
-                   text: qsTr("X:")
-                   font.pointSize: 15
-               }
-                ICLineEdit{
-                    id:x
-                }
-                Text {
-                    text: qsTr("Y:")
-                    font.pointSize: 15
-                }
-                ICLineEdit{
-                    id:y
-                }
-                ICButton{
-                    text: "运行"
-                    onClicked: {
-                        Control.sendData(Control.AUTO_1+3,0);
+                Row{
+                    ICCheckbox{
+                        id:cycle
+                        configName: "是否循环"
                     }
                 }
-            }
-            Row{
-                Text {
-                    text: qsTr("5.画圆半径：")
-                    font.pointSize: 15
-                }
-                ICLineEdit{
-                    id:r
-                }
-                ICButton{
-                    text: "运行"
-                    onClicked: {
-                       Control.sendData(Control.AUTO_1+4,r.configValue);
+                Row{
+                    ICInputBox{
+                        id:cycleTimes
+                        configName: "循环次数："
+                        configValue: "3"
+                        enabled: cycle.configValue
                     }
                 }
-            }
-            Row{
-                Text {
-                    text: qsTr("6.轨迹")
-                    font.pointSize: 15
-                }
-                ICButton{
-                    text: "运行"
-                    onClicked: {
-                        Control.sendData(Control.AUTO_1+5,r.configValue);
+                Row{
+                    ICCheckbox{
+                        id:symmetry
+                        configName: "是否对称"
+                        enabled: cycle.configValue
                     }
                 }
+
             }
+
         }
     }
 }

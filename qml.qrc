@@ -22,5 +22,7 @@
         <file>AutoControls.qml</file>
         <file>control.js</file>
         <file>LimitSet.qml</file>
+        <file>ControlQml/ICCheckbox.qml</file>
+        <file>ControlQml/ICInputBox.qml</file>
     </qresource>
 </RCC>

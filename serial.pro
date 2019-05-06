@@ -45,7 +45,9 @@ DISTFILES += \
     ControlQml/ICSurveillance.qml \
     CalibrationPage.qml \
     control.js \
-    LimitSet.qml
+    LimitSet.qml \
+    ControlQml/ICCheckbox.qml \
+    ControlQml/ICInputBox.qml
 
 HEADERS += \
     serial/serialtest.h

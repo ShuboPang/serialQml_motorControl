@@ -6,6 +6,7 @@ Rectangle{
     Text {
         id: title
         text: qsTr("text")
+        font.pixelSize: 15
     }
     Rectangle{
         id:borderLine
