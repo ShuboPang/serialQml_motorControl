@@ -147,18 +147,28 @@ Rectangle {
                         id:autoSpeed
                         configName: "全局速度："
                         configValue: "5"
+                        onConfigValueChanged: {
+                            Control.sendData(Control.AUTO_1+6,autoSpeed.configValue);
+                        }
                     }
                 }
                 Row{
                     ICCheckbox{
                         id:comeBack
                         configName: "是否返回"
+                        onConfigValueChanged: {
+                             Control.sendData(Control.AUTO_1+7,comeBack.configValue);
+                        }
+
                     }
                 }
                 Row{
                     ICCheckbox{
                         id:cycle
                         configName: "是否循环"
+                        onConfigValueChanged: {
+                             Control.sendData(Control.AUTO_1+8,cycle.configValue);
+                        }
                     }
                 }
                 Row{
@@ -167,6 +177,9 @@ Rectangle {
                         configName: "循环次数："
                         configValue: "3"
                         enabled: cycle.configValue
+                        onConfigValueChanged: {
+                             Control.sendData(Control.AUTO_1+9,cycleTimes.configValue);
+                        }
                     }
                 }
                 Row{
@@ -174,6 +187,9 @@ Rectangle {
                         id:symmetry
                         configName: "是否对称"
                         enabled: cycle.configValue
+                        onConfigValueChanged: {
+                             Control.sendData(Control.AUTO_1+10,symmetry.configValue);
+                        }
                     }
                 }
 
