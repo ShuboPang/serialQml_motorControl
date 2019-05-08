@@ -8,7 +8,7 @@ Rectangle {
             anchors.leftMargin: 65
             Button{
                 id:goUp
-                text: "↑"
+                text: "▲"
                 width: 65
                 height: width
                 font.pointSize: 20
@@ -17,7 +17,7 @@ Rectangle {
         Row{
             Button{
                 id:goLeft
-                text: "←"
+                text: "◀"
                 width: goUp.width
                 height: goUp.height
                 font.pointSize: 20
@@ -31,7 +31,7 @@ Rectangle {
             }
             Button{
                 id:goRight
-                text: "→"
+                text: "▶"
                 width: goUp.width
                 height: goUp.height
                 font.pointSize: 20
@@ -42,7 +42,7 @@ Rectangle {
             anchors.leftMargin: 65
             Button{
                 id:goDown
-                text: "↓"
+                text: "▼"
                 width: goUp.width
                 height: goUp.height
                 font.pointSize: 20
