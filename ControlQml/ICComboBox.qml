@@ -9,7 +9,7 @@ Rectangle {
     property alias textColor: text.color
     property alias inputWidth: box.width
     width: text.width + box.width
-    height: 25
+    height: 35
     Text {
         id: text
         text: qsTr("name")

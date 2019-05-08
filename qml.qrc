@@ -27,5 +27,9 @@
         <file>image/panda.png</file>
         <file>ControlQml/ICButtonGroup.qml</file>
         <file>ControlQml/ICProgressBar.qml</file>
+        <file>ControlQml/ICScreenSafer.qml</file>
+        <file>image/popo.png</file>
+        <file>ControlQml/ICClock.qml</file>
+        <file>ControlQml/ICSerialConfig.qml</file>
     </qresource>
 </RCC>

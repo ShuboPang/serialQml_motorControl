@@ -7,7 +7,7 @@ Rectangle {
     property string btOKName: ""
     property string btCancelName: ""
     width: runLed.width + text.width
-    height: 30
+    height: 35
 
     signal btClick()
 
@@ -28,7 +28,7 @@ Rectangle {
     ICButton{
         id:enter
         text:btOKName
-        width: 105
+        width: 145
         height: 35
         anchors.left: text.right
         onClicked: {
