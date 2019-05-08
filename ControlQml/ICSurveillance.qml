@@ -6,6 +6,7 @@ Rectangle{
     property alias configValue: value.text
     property alias unit:unit.text
     width: title.width + value.width+unit.width
+    radius: 5
     height: 25
     Text {
         id: title

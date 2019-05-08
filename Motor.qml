@@ -8,9 +8,8 @@ Rectangle {
     property alias title: title.text
     property alias xValue: x.configValue
     property alias yValue: y.configValue
-    property alias zValue: z.configValue
-    width: borderLine.width +20
-    height: borderLine.width +20
+    width: borderLine.width + 20
+    height: borderLine.width - 25
     Rectangle{
         id:titleRec
         z:2
@@ -29,12 +28,13 @@ Rectangle {
     Rectangle{
         id:borderLine
         border.color: "black"
-        border.width: 1
+        radius: 5
+        border.width: 2
         anchors.top: titleRec.top
         anchors.left: titleRec.left
-        anchors.topMargin: 7
+        anchors.topMargin: 13
         anchors.leftMargin : -5
-        height: (x.height + 15) * 3
+        height: (x.height + 15) * 2.3
         width: 150
         z:1
         Column{
@@ -45,7 +45,7 @@ Rectangle {
             Row{
                 ICSurveillance{
                     id:x
-                    configName: "当前脉冲:"
+                    configName: "电机号:"
                     configValue: "0"
                     unit:""
                 }
@@ -53,19 +53,12 @@ Rectangle {
             Row{
                 ICSurveillance{
                     id:y
-                    configName: "目标脉冲:"
+                    configName: "当前转速:"
                     configValue: "0"
                     unit:""
                 }
             }
-            Row{
-                ICSurveillance{
-                    id:z
-                    configName: "速度:"
-                    configValue: "0"
-                    unit:""
-                }
-            }
+
         }
     }
 }

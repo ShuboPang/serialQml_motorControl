@@ -7,9 +7,8 @@ Rectangle {
     id:root
     property alias xValue: x.configValue
     property alias yValue: y.configValue
-    property alias zValue: z.configValue
-    width: borderLine.width +20
-    height: borderLine.width +20
+    width: borderLine.width + 20
+    height: borderLine.width - 25
     Rectangle{
         id:titleRec
         z:2
@@ -20,7 +19,7 @@ Rectangle {
             id: title
             x:5
             z:3
-            text: qsTr("Mpu6050")
+            text: qsTr("实时检测")
             font.pointSize: 15
         }
     }
@@ -28,13 +27,14 @@ Rectangle {
     Rectangle{
         id:borderLine
         border.color: "black"
-        border.width: 1
+        radius: 5
+        border.width: 2
         anchors.top: titleRec.top
         anchors.left: titleRec.left
-        anchors.topMargin: 7
+        anchors.topMargin: 13
         anchors.leftMargin : -5
-        height: (x.height + 15) * 3
-        width: 150
+        height: (x.height + 15) * 2.3
+        width: 190
         z:1
         Column{
             id:showxyz
@@ -44,25 +44,17 @@ Rectangle {
             Row{
                 ICSurveillance{
                     id:x
-                    configName: "X:"
-                    configValue: "0"
-                    unit:"°"
+                    configName: "火焰检测:"
+                    configValue: "未检测到"
+                    unit:""
                 }
             }
             Row{
                 ICSurveillance{
                     id:y
-                    configName: "Y:"
-                    configValue: "0"
-                    unit:"°"
-                }
-            }
-            Row{
-                ICSurveillance{
-                    id:z
-                    configName: "Z:"
-                    configValue: "0"
-                    unit:"cm"
+                    configName: "开始灭火:"
+                    configValue: "否"
+                    unit:""
                 }
             }
         }

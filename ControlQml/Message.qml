@@ -6,13 +6,13 @@ Rectangle {
     id:root
     property alias title: title.text
     property alias message: text.text
-    width: 160
+    width: 200
     height: width / 16 * 9
     border.color: "black"
     border.width: 1
     Text {
         id: title
-        text: qsTr("Error")
+        text: qsTr("错误!")
         anchors.left: parent.left
         anchors.top:parent.top
         anchors.leftMargin: 2
@@ -29,14 +29,18 @@ Rectangle {
     Text {
         id: text
         text: qsTr("text")
-        anchors.centerIn: parent
-        anchors.bottomMargin: 5
-    }
-    ICButton{
-        text: "OK"
         anchors.bottom: root.bottom
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottomMargin: 5
+        anchors.bottomMargin: 55
+        font.pixelSize: 18
+    }
+    ICButton{
+        text: "确定"
+        height: 35
+        width: 120
+        anchors.bottom: root.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottomMargin: 10
         onClicked: {
             root.visible = false
         }

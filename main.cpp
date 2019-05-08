@@ -1,6 +1,10 @@
 ﻿#include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QPixmap>
+#include <QApplication>
+#include <QSplashScreen>
+#include <QDateTime>
 #include "serial/serialtest.h"
 
 

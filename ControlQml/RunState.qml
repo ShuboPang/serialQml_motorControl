@@ -28,6 +28,8 @@ Rectangle {
     ICButton{
         id:enter
         text:btOKName
+        width: 105
+        height: 35
         anchors.left: text.right
         onClicked: {
             btClick()

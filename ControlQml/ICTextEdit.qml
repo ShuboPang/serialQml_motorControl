@@ -18,57 +18,12 @@ Rectangle {
     signal sendData()
 
     Row{
-        Column{
-            id:left
-            spacing: 10
-            Text {
-                id: name
-                text: qsTr("name:")
-                font.pointSize: 15
-    //            anchors.verticalCenter: showRec
-            }
-            ICButton{
-                id:clear
-                text: "清空"
-                onClicked: {
-                    clickClear()
-                }
-            }
-            Row{
-                spacing: 2
-                visible: !isSend
-                Text {
-                    text: qsTr("接收数:")
-                    font.pointSize: 12
-                }
-                Text {
-                    id: recvCount
-                    font.pointSize: 12
-                    text:"0"
-                    onTextChanged: {
-                        if(Number(text) >= 20000)
-                        {
-                            clickClear()
-                        }
-                    }
-                }
-            }
-
-            ICButton{
-                id:send
-                text: "发送"
-                visible: isSend
-                onClicked: {
-                    sendData()
-                }
-            }
-
-        }
 
         Rectangle{
             id:showRec
             border.color: "black"
-            border.width: 1
+            border.width: 2
+            radius: 5
             x:5
             width: edit.width + 5
             height: edit.height + 5
@@ -120,6 +75,54 @@ Rectangle {
                       edit.forceActiveFocus();
                   }
               }
+        }
+        Column{
+            id:left
+            spacing: 10
+            Text {
+                id: name
+                text: qsTr("name:")
+                font.pointSize: 15
+    //            anchors.verticalCenter: showRec
+            }
+            ICButton{
+                id:clear
+                text: "清空"
+                height: 35
+                onClicked: {
+                    clickClear()
+                }
+            }
+            Row{
+                spacing: 2
+                visible: !isSend
+                Text {
+                    text: qsTr("接收数:")
+                    font.pointSize: 12
+                }
+                Text {
+                    id: recvCount
+                    font.pointSize: 12
+                    text:"0"
+                    onTextChanged: {
+                        if(Number(text) >= 20000)
+                        {
+                            clickClear()
+                        }
+                    }
+                }
+            }
+
+            ICButton{
+                id:send
+                text: "发送"
+                height: 35
+                visible: isSend
+                onClicked: {
+                    sendData()
+                }
+            }
+
         }
 
     }

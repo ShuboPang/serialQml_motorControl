@@ -1,5 +1,6 @@
 QT += quick
 QT += serialport
+QT += widgets
 CONFIG += c++11
 RC_ICONS = app.ico
 

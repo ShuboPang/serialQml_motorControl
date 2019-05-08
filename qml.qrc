@@ -24,5 +24,8 @@
         <file>LimitSet.qml</file>
         <file>ControlQml/ICCheckbox.qml</file>
         <file>ControlQml/ICInputBox.qml</file>
+        <file>image/panda.png</file>
+        <file>ControlQml/ICButtonGroup.qml</file>
+        <file>ControlQml/ICProgressBar.qml</file>
     </qresource>
 </RCC>

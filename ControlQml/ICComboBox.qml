@@ -4,7 +4,7 @@ import QtQuick.Controls 2.2
 Rectangle {
     property alias configName: text.text
     property alias item: box.model
-    property alias connfigValue: box.currentIndex
+    property alias configValue: box.currentIndex
     property alias configValueText: box.currentText
     property alias textColor: text.color
     property alias inputWidth: box.width
@@ -20,6 +20,6 @@ Rectangle {
         anchors.left:text.right
         font.pointSize: 12
         width: 100
-        height: 25
+        height: 35
     }
 }
