@@ -31,5 +31,7 @@
         <file>image/popo.png</file>
         <file>ControlQml/ICClock.qml</file>
         <file>ControlQml/ICSerialConfig.qml</file>
+        <file>FireCheck.qml</file>
+        <file>SerialObserve.qml</file>
     </qresource>
 </RCC>

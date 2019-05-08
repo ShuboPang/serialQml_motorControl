@@ -20,6 +20,7 @@ Window {
             configValue: 13
             onConfigValueChanged:{
                 portText.text = configValue;
+                whichCom.text = configValueText;
             }
         }
         ICComboBox{
@@ -30,6 +31,7 @@ Window {
             configValue: 3
             onConfigValueChanged:{
                 baudRatetext.text = configValue;
+                whichBaudRate.text = configValueText;
             }
         }
         ICComboBox{

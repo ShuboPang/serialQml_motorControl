@@ -17,8 +17,13 @@ ApplicationWindow {
     MouseArea{
         anchors.fill: parent
         onClicked: {
-            mainWindow.visible = true;
-            screenSafer.visible = false;
+            screenSafeRun.stop();
+            screenSafeRun.start();
+            if(!mainWindow.visible)
+            {
+                mainWindow.visible = true;
+                screenSafer.visible = false;
+            }
         }
     }
     Rectangle{
@@ -104,11 +109,20 @@ ApplicationWindow {
         }
         Timer{
              id: screenSafeRun
-             repeat: true;
+             repeat: false;
              interval: (60000*Number(ss_time.text));
              onTriggered: {
                  mainWindow.visible = false;
                  screenSafer.visible = true;
+             }
+        }
+        Timer{
+             id: reflashData
+             repeat: true;
+             interval: 1000;
+             onTriggered: {
+                 com_text.xValue = whichCom.text;
+                 com_text.yValue = whichBaudRate.text;
              }
         }
     }
@@ -132,6 +146,14 @@ ApplicationWindow {
                 Rectangle{
                     id:sf_text
                     visible: false
+                    Text {
+                        id: whichCom
+                        text: "COM14"
+                    }
+                    Text {
+                        id: whichBaudRate
+                        text: "115200"
+                    }
                     Text {
                         id: portText
                         text: "13"
@@ -246,11 +268,6 @@ ApplicationWindow {
                     }
                 }
             }
-//            Column{
-//                OverSee{
-//                    id:oversee
-//                }
-//            }
         }
         Row{
             id: nowModeStatus
@@ -349,6 +366,29 @@ ApplicationWindow {
                         ss_time.text = 2;
                     }
                 }
+                ICButton{
+                    id: show_serialText
+                    text: "显示串口信息"
+                    height: 35
+                    width: 160
+                    onClicked: {
+                        com_text.visible = true;
+                        visible = false;
+                        un_show_serialText.visible = true;
+                    }
+                }
+                ICButton{
+                    id: un_show_serialText
+                    visible: false
+                    text: "隐藏串口信息"
+                    height: 35
+                    width: 160
+                    onClicked: {
+                        com_text.visible = false;
+                        visible = false;
+                        show_serialText.visible = true;
+                    }
+                }
                 Text {
                     id: ss_time
                     visible: false
@@ -370,7 +410,7 @@ ApplicationWindow {
                     ICButton{
                         id: c_manualMove
                         visible: true
-                        text: "开启手动导航"
+                        text: "开启手动控制"
                         height: 35
                         width: s_screenSafer.width
                         onClicked: {
@@ -384,7 +424,7 @@ ApplicationWindow {
                     ICButton{
                         id: o_manualMove
                         visible: false
-                        text: "关闭手动导航"
+                        text: "关闭手动控制"
                         height: 35
                         width: s_screenSafer.width
                         onClicked: {
@@ -476,8 +516,16 @@ ApplicationWindow {
                             xValue: "3"
                         }
                     }
-                    Mpu6050{
+                    Column{
                         id: observe
+                        spacing: -40
+                        FireCheck{
+
+                        }
+                        SerialObserve{
+                            id:com_text
+                            visible: false
+                        }
                     }
                 }
             }
