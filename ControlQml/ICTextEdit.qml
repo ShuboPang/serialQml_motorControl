@@ -98,11 +98,11 @@ Rectangle {
                 visible: !isSend
                 Text {
                     text: qsTr("接收数:")
-                    font.pointSize: 12
+                    font.pointSize: 15
                 }
                 Text {
                     id: recvCount
-                    font.pointSize: 12
+                    font.pointSize: 15
                     text:"0"
                     onTextChanged: {
                         if(Number(text) >= 20000)

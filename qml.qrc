@@ -33,5 +33,6 @@
         <file>ControlQml/ICSerialConfig.qml</file>
         <file>FireCheck.qml</file>
         <file>SerialObserve.qml</file>
+        <file>ControlQml/ICConfigSetWindow.qml</file>
     </qresource>
 </RCC>

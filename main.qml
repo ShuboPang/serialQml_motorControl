@@ -11,7 +11,7 @@ ApplicationWindow {
     height: 615
     title: qsTr("Name--")
     onVisibleChanged: {
-        screenTime5.start();
+        screenTime1.start();
         longerStatus.progress25 = true;
     }
     MouseArea{
@@ -104,7 +104,8 @@ ApplicationWindow {
                  screenLoader.visible = false;
                  screenShop.visible = false;
                  mainWindow.visible = true;
-                 screenSafeRun.start();
+                 if(Number(ss_time.text) != 0)
+                    screenSafeRun.start();
              }
         }
         Timer{
@@ -363,7 +364,7 @@ ApplicationWindow {
                     height: 35
                     width: 160
                     onClicked: {
-                        ss_time.text = 2;
+                        ss_setWindow.visible = true;
                     }
                 }
                 ICButton{
@@ -554,5 +555,17 @@ ApplicationWindow {
     ICSerialConfig{
         id:serialLoader
         visible: false
+    }
+    ICConfigSetWindow{
+        id:ss_setWindow
+        visible: false
+        onVisibleChanged: {
+            if(!visible){
+                if(Number(ss_time.text) == 0)
+                    screenSafeRun.stop();
+                else
+                    screenSafeRun.start();
+            }
+        }
     }
 }
