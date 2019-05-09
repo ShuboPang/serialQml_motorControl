@@ -54,9 +54,8 @@ Window {
 //                        time = 60;
 //                    else if(set_ssTime.configValue == 5)
 //                        time = 0;
-                    if(Number(name.text) == 0)
-                       time = 1;
-                    ss_time.text = Number(name.text);
+                    if(name.text != " ")
+                        ss_time.text = Number(name.text);
                     ss_setWindow.visible = false;
                 }
             }

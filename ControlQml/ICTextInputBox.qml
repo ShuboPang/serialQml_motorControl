@@ -6,6 +6,7 @@ FocusScope{
     property alias inputWidth: inputs.width
     property alias inputHeight: inputs.height
     property alias bgcolor: inputs.color
+    property alias enabled: input.readOnly
 
     Row{
         spacing: 5
@@ -26,9 +27,17 @@ FocusScope{
                 id: input
                 anchors.fill: parent
                 anchors.margins: 4
+                readOnly: false
                 focus: true
                 text: "请输入内容"
                 font.pixelSize: 22
+                validator: DoubleValidator{id:rdecimal; decimals: 3; bottom: 0.000; top: 60.000 ;notation:DoubleValidator.StandardNotation}
+            }
+            MouseArea{
+                anchors.fill: input
+                onClicked: {
+                    input.text = " ";
+                }
             }
         }
     }
