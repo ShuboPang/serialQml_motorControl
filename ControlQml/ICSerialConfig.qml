@@ -7,6 +7,7 @@ import QtQuick.Controls 2.2
 Window {
     width: 240
     height: 300
+    title: "串口配置"
     Column{
         id:setPort
         spacing: 5

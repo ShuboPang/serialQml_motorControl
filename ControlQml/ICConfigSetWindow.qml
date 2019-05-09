@@ -7,6 +7,7 @@ import QtQuick.Controls 2.2
 Window {
     width: 300
     height: 120
+    title: "屏保时间设定"
     Rectangle{
         Row{
             anchors.left: parent.left
@@ -14,16 +15,21 @@ Window {
             anchors.top: parent.top
             anchors.topMargin: 8
             spacing: 10
-            Text {
+            ICTextInputBox{
                 id: name
-                font.pixelSize: 22
-                text: "屏保时间设定为"
+                label: "屏保时间设定为"
+                inputWidth: 120
             }
-            ICComboBox{
-                id: set_ssTime
-                configName: " "
-                item: ["1分钟","5分钟","10分钟","30分钟","1小时","从不"]
-            }
+//            Text {
+//                id: name
+//                font.pixelSize: 22
+//                text: "屏保时间设定为"
+//            }
+//            ICComboBox{
+//                id: set_ssTime
+//                configName: " "
+//                item: ["1分钟","5分钟","10分钟","30分钟","1小时","从不"]
+//            }
         }
         Row{
             anchors.left: parent.left
@@ -35,20 +41,22 @@ Window {
                 id:sureBtn
                 text: "确定"
                 onClicked: {
-                    var time;
-                    if(set_ssTime.configValue == 0)
-                        time = 1;
-                    else if(set_ssTime.configValue == 1)
-                        time = 5;
-                    else if(set_ssTime.configValue == 2)
-                        time = 10;
-                    else if(set_ssTime.configValue == 3)
-                        time = 30;
-                    else if(set_ssTime.configValue == 4)
-                        time = 60;
-                    else if(set_ssTime.configValue == 5)
-                        time = 0;
-                    ss_time.text = time;
+//                    var time;
+//                    if(set_ssTime.configValue == 0)
+//                        time = 1;
+//                    else if(set_ssTime.configValue == 1)
+//                        time = 5;
+//                    else if(set_ssTime.configValue == 2)
+//                        time = 10;
+//                    else if(set_ssTime.configValue == 3)
+//                        time = 30;
+//                    else if(set_ssTime.configValue == 4)
+//                        time = 60;
+//                    else if(set_ssTime.configValue == 5)
+//                        time = 0;
+                    if(Number(name.text) == 0)
+                       time = 1;
+                    ss_time.text = Number(name.text);
                     ss_setWindow.visible = false;
                 }
             }

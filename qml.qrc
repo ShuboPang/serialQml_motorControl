@@ -34,5 +34,6 @@
         <file>FireCheck.qml</file>
         <file>SerialObserve.qml</file>
         <file>ControlQml/ICConfigSetWindow.qml</file>
+        <file>ControlQml/ICTextInputBox.qml</file>
     </qresource>
 </RCC>
