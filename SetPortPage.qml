@@ -42,7 +42,7 @@ Rectangle {
             ICComboBox{
                 id:port
                 configName:"端口号:"
-                item: ["COM1","COM2","COM3","COM4","COM5","COM6","COM7","COM8","COM9","COM10","COM11","COM12","COM13","COM14","COM15"]
+                item: ["COM1","COM2","COM3","COM4","COM5","COM6","COM7","COM8","COM9","COM10","COM11","COM12","COM13","COM14","COM15","COM16","COM17","COM18","COM19",]
                 connfigValue: 13
             }
             ICComboBox{

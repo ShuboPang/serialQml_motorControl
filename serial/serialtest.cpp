@@ -16,7 +16,7 @@ int SerialTest::openAndSetPort(int PortNameIndex,int BaudRateIndex,int DatabitsI
 {
     ////////////////////1.得到当前选择的各项设置//////////////////////////////
     //得到当前端口名
-    QString allname[]={"COM1","COM2","COM3","COM4","COM5","COM6","COM7","COM8","COM9","COM10","COM11","COM12","COM13","COM14","COM15"};//列举所有的端口名
+    QString allname[]={"COM1","COM2","COM3","COM4","COM5","COM6","COM7","COM8","COM9","COM10","COM11","COM12","COM13","COM14","COM15","COM16","COM17","COM18","COM19",};//列举所有的端口名
     currentsetting.name=allname[PortNameIndex];//由qml里表示name的combobox的currentIndex来确定当前的name
     std::cout<<" ok setPortName to "+ currentsetting.name.toStdString()<< std::endl;//通过输出来验证设定成功
 
