@@ -75,7 +75,8 @@ ApplicationWindow {
                         else if(tmp[1] == "4"){
                             oversee.mpu6050x = (Number(tmp[2])/32768*180).toFixed(3);
                             oversee.mpu6050y = (Number(tmp[3])/32768*180).toFixed(3);
-                            oversee.mpu6050z = Number(tmp[4]).toFixed(1);
+                            console.log(tmp[4])
+                            oversee.mpu6050z = (Number(tmp[4])/10).toFixed(1);
                         }
                         else if(tmp[1] == "5"){
                             error.configValue = Control.getErr(tmp[2])
