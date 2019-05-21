@@ -12,10 +12,20 @@ Rectangle{
     Column{
         spacing: 5
         Row{
+            spacing: 5
             Text {
                 id: motorID
                 text: qsTr("电机")+motorId
                 font.pointSize: 15
+            }
+            ICCheckbox{
+                id:dir
+                configName: "反向"
+                anchors.top:motorID.top
+                anchors.topMargin: -10
+                onConfigValueChanged: {
+                     Control.sendData(Control.MOTOR1_DIR+Number((motorId)-1)*10,dir.configValue);
+                }
             }
         }
         Row{
