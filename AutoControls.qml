@@ -24,6 +24,14 @@ Rectangle {
         }
     }
 
+    function auto_para(){
+        Control.sendData(Control.AUTO_1+6,autoSpeed.configValue);
+        Control.sendData(Control.AUTO_1+7,comeBack.configValue);
+        Control.sendData(Control.AUTO_1+8,cycle.configValue);
+        Control.sendData(Control.AUTO_1+9,cycleTimes.configValue);
+        Control.sendData(Control.AUTO_1+10,symmetry.configValue);
+    }
+
     Rectangle{
         id:borderLine
         border.color: "black"
@@ -52,7 +60,9 @@ Rectangle {
                     ICButton{
                         text: "运行"
                         onClicked: {
+                            auto_para()
                             Control.sendData(Control.AUTO_1,height.configValue);
+
                         }
                     }
                 }
@@ -67,6 +77,7 @@ Rectangle {
                     ICButton{
                         text: "运行"
                         onClicked: {
+                            auto_para()
                             Control.sendData(Control.AUTO_1+1,angle.configValue);
                         }
                     }
@@ -82,7 +93,9 @@ Rectangle {
                     ICButton{
                         text: "运行"
                         onClicked: {
+                            auto_para()
                             Control.sendData(Control.AUTO_1+2,distance.configValue);
+
                         }
                     }
                 }
@@ -108,7 +121,9 @@ Rectangle {
                     ICButton{
                         text: "运行"
                         onClicked: {
+                            auto_para()
                             Control.sendData(Control.AUTO_1+3,0);
+
                         }
                     }
                 }
@@ -123,7 +138,9 @@ Rectangle {
                     ICButton{
                         text: "运行"
                         onClicked: {
+                            auto_para()
                            Control.sendData(Control.AUTO_1+4,r.configValue);
+
                         }
                     }
                 }
@@ -135,6 +152,7 @@ Rectangle {
                     ICButton{
                         text: "运行"
                         onClicked: {
+                            auto_para()
                             Control.sendData(Control.AUTO_1+5,r.configValue);
                         }
                     }

@@ -31,6 +31,7 @@ ApplicationWindow {
                     inputText: {
                         var arr = serialtest.receivedata.split("#")
                         var ret ;
+//                        console.log("recv",serialtest.receivedata)
                         if(arr[arr.length-1].split(",").length !== 8 || arr[arr.length-1].split(",")[0] != "123" || arr[arr.length-1].split(",")[7] != "321")
                         {
                             ret = arr[arr.length-2]+""
