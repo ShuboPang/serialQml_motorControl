@@ -100,6 +100,7 @@ Rectangle {
                     }
                 }
                 Row{
+                    visible: false
                     Text {
                         text: qsTr("4.任意点")
                         font.pointSize: 15
@@ -129,7 +130,7 @@ Rectangle {
                 }
                 Row{
                     Text {
-                        text: qsTr("5.画圆半径：")
+                        text: qsTr("4.画圆半径：")
                         font.pointSize: 15
                     }
                     ICLineEdit{
@@ -145,6 +146,7 @@ Rectangle {
                     }
                 }
                 Row{
+                    visible: false
                     Text {
                         text: qsTr("6.轨迹")
                         font.pointSize: 15
