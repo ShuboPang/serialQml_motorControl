@@ -35,5 +35,7 @@
         <file>SerialObserve.qml</file>
         <file>ControlQml/ICConfigSetWindow.qml</file>
         <file>ControlQml/ICTextInputBox.qml</file>
+        <file>image/check.png</file>
+        <file>image/uncheck.png</file>
     </qresource>
 </RCC>

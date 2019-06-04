@@ -1,6 +1,5 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
-import QtQuick.Controls.Material 2.3
 import "./ControlQml"
 
 Rectangle {
@@ -45,7 +44,7 @@ Rectangle {
                 ICSurveillance{
                     id:x
                     configName: "COM口:"
-                    configValue: "COM14"
+                    configValue: "COM4"
                     unit:""
                 }
             }
@@ -53,7 +52,7 @@ Rectangle {
                 ICSurveillance{
                     id:y
                     configName: "波特率:"
-                    configValue: "115200"
+                    configValue: "9600"
                     unit:""
                 }
             }

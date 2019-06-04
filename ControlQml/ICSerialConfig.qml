@@ -18,7 +18,7 @@ Window {
             configName:"端口号:"
             inputWidth: 130
             item: ["COM1","COM2","COM3","COM4","COM5","COM6","COM7","COM8","COM9","COM10","COM11","COM12","COM13","COM14","COM15"]
-            configValue: 13
+            configValue: 3
             onConfigValueChanged:{
                 portText.text = configValue;
                 whichCom.text = configValueText;
@@ -29,7 +29,7 @@ Window {
             configName:"波特率:"
             inputWidth: port.inputWidth
             item: ["9600","19200","38400","115200"]
-            configValue: 3
+            configValue: 0
             onConfigValueChanged:{
                 baudRatetext.text = configValue;
                 whichBaudRate.text = configValueText;

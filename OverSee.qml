@@ -1,6 +1,5 @@
 ﻿import QtQuick 2.9
 import QtQuick.Controls 2.2
-import QtQuick.Controls.Material 2.3
 import "./ControlQml"
 
 
@@ -28,14 +27,12 @@ Rectangle{
                 id:mpu6050
                 xValue: "11"
                 yValue: "12"
-                zValue: "13"
             }
             Motor{
                 id:motor1
                 title: "Motor1"
                 xValue: "13"
                 yValue: "14"
-                zValue: "15"
             }
         }
         Row{
@@ -45,14 +42,12 @@ Rectangle{
                 title: "Motor2"
                 xValue: "13"
                 yValue: "14"
-                zValue: "15"
             }
             Motor{
                 id:motor3
                 title: "Motor3"
                 xValue: "13"
                 yValue: "14"
-                zValue: "15"
             }
         }
     }

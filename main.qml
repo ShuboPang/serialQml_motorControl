@@ -1,6 +1,5 @@
 ﻿import QtQuick 2.9
 import QtQuick.Controls 2.2
-import QtQuick.Controls.Material 2.3
 import "./ControlQml"
 import "./control.js" as Control
 
@@ -9,11 +8,47 @@ ApplicationWindow {
     visible: true
     width: 760
     height: 615
-    title: qsTr("Name--")
+    title: qsTr("STM32智能消防车控制监测系统")
     onVisibleChanged: {
         screenTime1.start();
         longerStatus.progress25 = true;
     }
+    function setValue(array){
+        var tmp = array.split(",")
+        if(tmp.length !==8 ){
+            return ;
+        }
+        if(tmp[1] == "1"){
+            e_machine0.yValue = tmp[3];
+            e_machine2.yValue = tmp[3];
+            e_machine1.yValue = tmp[3];
+            e_machine3.yValue = tmp[3];
+            fire_ck.yValue = tmp[4] == 1?"检测到":"未检测到";
+            fire_ck.yValue = tmp[4] == 1?"是":"否";
+//            oversee.motor1y = tmp[3];
+//            oversee.motor1z = tmp[4];
+        }
+        else if(tmp[1] == "2"){
+            oversee.motor2x = tmp[2];
+//            oversee.motor2y = tmp[3];
+//            oversee.motor2z = tmp[4];
+        }
+        else if(tmp[1] == "3"){
+            oversee.motor3x = tmp[2];
+//            oversee.motor3y = tmp[3];
+//            oversee.motor3z = tmp[4];
+        }
+        else if(tmp[1] == "4"){
+            oversee.mpu6050x = (Number(tmp[2])/32768*180).toFixed(3);
+//            oversee.mpu6050y = (Number(tmp[3])/32768*180).toFixed(3);
+//            console.log(tmp[4])
+//            oversee.mpu6050z = (Number(tmp[4])/10).toFixed(1);
+        }
+        else if(tmp[1] == "5"){
+            error.configValue = Control.getErr(tmp[2])
+        }
+    }
+
     MouseArea{
         anchors.fill: parent
         onClicked: {
@@ -104,17 +139,18 @@ ApplicationWindow {
                  screenLoader.visible = false;
                  screenShop.visible = false;
                  mainWindow.visible = true;
-                 if(Number(ss_time.text) != 0)
-                    screenSafeRun.start();
+//                 reflashData.start();
+//                 if(Number(ss_time.text) != 0)
+//                    screenSafeRun.start();
              }
         }
         Timer{
              id: screenSafeRun
              repeat: false;
-             interval: (60000*Number(ss_time.text));
+//             interval: (60000*Number(ss_time.text));
              onTriggered: {
-                 mainWindow.visible = false;
-                 screenSafer.visible = true;
+                // mainWindow.visible = false;
+                 //screenSafer.visible = true;
              }
         }
         Timer{
@@ -149,11 +185,11 @@ ApplicationWindow {
                     visible: false
                     Text {
                         id: whichCom
-                        text: "COM14"
+                        text: "COM4"
                     }
                     Text {
                         id: whichBaudRate
-                        text: "115200"
+                        text: "9600"
                     }
                     Text {
                         id: portText
@@ -233,6 +269,7 @@ ApplicationWindow {
                     inputText: {
                         var arr = serialtest.receivedata.split("#")
                         var ret ;
+                        console.log("srecv",serialtest.receivedata)
                         if(arr[arr.length-1].split(",").length !== 8 || arr[arr.length-1].split(",")[0] != "123" || arr[arr.length-1].split(",")[7] != "321")
                         {
                             ret = arr[arr.length-2]+""
@@ -274,11 +311,13 @@ ApplicationWindow {
             id: nowModeStatus
             anchors.left: parent.left
             anchors.leftMargin: 10
-            spacing: 50
+            spacing: 25
             Row{
                 Image {
                     id: run_mg1
-                    source: "file"
+                    source: "./image/check.png"
+                    width: 25
+                    height: 25
                 }
                 Text {
                     id: run_status
@@ -288,8 +327,10 @@ ApplicationWindow {
             }
             Row{
                 Image {
-                    id: run_mg4
-                    source: "file"
+                    id: run_mg2
+                    source: "./image/check.png"
+                    width: run_mg1.width
+                    height: run_mg1.height
                 }
                 Text {
                     id: can_status
@@ -299,8 +340,10 @@ ApplicationWindow {
             }
             Row{
                 Image {
-                    id: run_mg2
-                    source: "file"
+                    id: run_mg3
+                    source: "./image/check.png"
+                    width: run_mg1.width
+                    height: run_mg1.height
                 }
                 Text {
                     id: fireDone_status
@@ -310,8 +353,10 @@ ApplicationWindow {
             }
             Row{
                 Image {
-                    id: run_mg3
-                    source: "file"
+                    id: run_mg4
+                    source: "./image/check.png"
+                    width: run_mg1.width
+                    height: run_mg1.height
                 }
                 Text {
                     id: dynamo_status
@@ -404,8 +449,25 @@ ApplicationWindow {
                         text: "手动灭火"
                         height: 35
                         width: s_screenSafer.width
+                        visible: true
                         onClicked: {
                             run_status.text = "当前任务:手动灭火"
+                            visible = false;
+                            z_fireDone.visible = true;
+                            Control.sendData(Control.FIRE_DOWN,1);
+                        }
+                    }
+                    ICButton{
+                        id: z_fireDone
+                        text: "停止灭火"
+                        height: 35
+                        width: s_screenSafer.width
+                        visible: false
+                        onClicked: {
+                            visible = false;
+                            m_fireDone.visible = true;
+                            run_status.text = "当前任务:灭火完成"
+                            Control.sendData(Control.FIRE_DOWN_C,1);
                         }
                     }
                     ICButton{
@@ -447,6 +509,7 @@ ApplicationWindow {
                         text: "区域监测"
                         height: 35
                         width: s_screenSafer.width
+                        visible: false
                         onClicked: {
                             run_status.text = "当前任务:区域监测"
                         }
@@ -458,6 +521,7 @@ ApplicationWindow {
                         width: s_screenSafer.width
                         onClicked: {
                             run_status.text = "当前任务:巡逻检测"
+                            Control.sendData(Control.AUTO_CHECK,1);
                         }
                     }
                     ICButton{
@@ -468,15 +532,18 @@ ApplicationWindow {
                         onClicked: {
                             nowTask.text = run_status.text
                             run_status.text = "当前任务:停止运行"
+                            Control.sendData(Control.C_STOP,1);
                         }
                     }
                     ICButton{
                         id: skipRun
                         text: "继续运行"
                         height: 35
+                        visible: false
                         width: s_screenSafer.width
                         onClicked: {
                             run_status.text = nowTask.text
+                            Control.sendData(Control.AUTO_CHECK,1);
                         }
                     }
                     Text {
@@ -521,7 +588,7 @@ ApplicationWindow {
                         id: observe
                         spacing: -40
                         FireCheck{
-
+                            id:fire_ck
                         }
                         SerialObserve{
                             id:com_text
@@ -537,7 +604,7 @@ ApplicationWindow {
                 width: 195
                 height: 195
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: -20
+                anchors.bottomMargin: 10
                 ICButtonGroup{
                     id: controlRun
                 }
